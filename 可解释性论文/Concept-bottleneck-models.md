@@ -124,4 +124,17 @@ CBM：首先预测人类指定的中间概念集 $c$，然后使用 $c$预测目
 2. CUB -> model
 
    * 学习 $g$: inception v3
-   * 学习 $f$:单个线性层
+   * 学习 $f$: 单个线性层
+
+### 2. Task and concept accuracies
+
+<img width="798" alt="image" src="https://github.com/user-attachments/assets/5b2e328f-5665-4d00-9c2f-6283cad6d344" />
+[上图记录的是损失，越小越好]
+
+根据实验结果可以看到：
+
+* 尽管有瓶颈约束，但是cbm还是在两个任务熵到达了与标准黑盒模型相当的任务准确率
+* 在OAI上，联合瓶颈和顺序瓶颈模型在RMSE上实际比**标准的还好**
+* 在CUB上，顺序和独立瓶颈模型比标准略差，但是联合模型弥补了大部分差距
+
+
