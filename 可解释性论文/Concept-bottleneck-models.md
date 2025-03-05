@@ -255,4 +255,18 @@ post-hoc：先训练一个直接预测模型 $x\to y$，然后使用探针probe�
 
 可以看到，虽然出版的错误率更高(可能是因为sigmoid的挤压效应，将梯度变小，导致优化困难)，但是其干预效果更好，并且干预过程更加直接
 
+## Robustness to blackground shifts
+
+为了探讨概念瓶颈模型是否比标准模型更能抵抗训练分布中存在但测试分布中存在在的虚假相关性，例如在CUB中，模型可能错误地将图像背景与标签关联起来
+
+<img width="457" alt="image" src="https://github.com/user-attachments/assets/84ea138d-6f4e-4d6b-9539-82b367632464" />
+
+[将每只鸟从原始背景中裁剪出来，放在places数据集上]
+
+
+<img width="559" alt="image" src="https://github.com/user-attachments/assets/67385800-8c22-42c7-9525-1778d2c2fb95" />
+
+可以看到cbm的表现优于standard模型；说明cbm较少依赖于背景特征，因为每个概念在多个鸟类之间共享
+
+
 
