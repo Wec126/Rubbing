@@ -137,4 +137,9 @@ CBM：首先预测人类指定的中间概念集 $c$，然后使用 $c$预测目
 * 在OAI上，联合瓶颈和顺序瓶颈模型在RMSE上实际比**标准的还好**
 * 在CUB上，顺序和独立瓶颈模型比标准略差，但是联合模型弥补了大部分差距
 
+<img width="616" alt="image" src="https://github.com/user-attachments/assets/c8a5abbe-da6e-44e5-a8b8-f662dfdf80e2" />
+
+[平均概念损失]
+
+* 可以看到相比于standard来说，使用cbm得到的平均概念误差更小
 
