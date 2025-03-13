@@ -37,5 +37,17 @@ encoder的输入首先先经过一个self-attention,该层帮助encoder能够看
 
 ### Self-attention
 
-1. 计算编码器的输入向量，生成三个向量，对于每个词向量，生成 **query-vec,key-vec,value-vec**，生成方法为分别乘以三个矩阵。(注意！！每个词向量独享三个matrix)
+1. 计算编码器的输入向量，生成三个向量，对于每个词向量，生成 **query-vec,key-vec,value-vec**，生成方法为分别乘以三个矩阵。(注意！！不是每个词向量独享三个matrix，而是所有输入共享三个转换矩阵，并且这些新向量的维度比输入词向量的维度要小)
+
+<img width="498" alt="image" src="https://github.com/user-attachments/assets/8d206322-c9b2-4203-9919-40d6f1c504b8" />
+
+2. 计算attention,需要计算每个词语thinking的评估分，这个分决定着编码某个词时，每个输入词需要几种多少关注度，这个关注度可以通过计算 **q_1和k_1**的点积
+
+<img width="438" alt="image" src="https://github.com/user-attachments/assets/d4128827-59a5-405f-ab1f-c6d2e065ad6d" />
+
+3. 除以 $\sqrt{d_k}$，然后加上softmax操作，归一化分值使得全是整数且加权和为1
+
+![Uploading image.png…]()
+
+
 
